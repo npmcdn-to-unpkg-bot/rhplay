@@ -1,0 +1,63 @@
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <!-- Título de Página-->
+            <legend>
+                <h3>
+                    <i class="fa fa-male"></i> Novo Colaborador
+                </h3>
+            </legend>
+            <form class="form-horizontal">
+                <div class="form-group">
+
+                    <!--Input do Nome-->
+                    <div class="col-md-3">
+                        <div ng-class="{'has-error': !colaborador.nome}">
+                            <label class="control-label" for="nome">Nome</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-male"></i></span>
+                                <input placeholder="Insira o nome" maxlength="75" class="form-control" type="text" ng-model="colaborador.nome" id="nome"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Input do Email-->
+                    <div class="col-md-3">
+                        <div ng-class="{'has-error': !colaborador.email}">
+                            <label class="control-label" for="email">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                <input placeholder="email@exemplo.com" ng-minlength="3" maxlength="58" class="form-control" type="email" ng-model="colaborador.email" id="email"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Input de Data de Nascimento-->
+                    <div class="col-md-2">
+                        <div ng-class="{'has-error': colaborador.dataNascimento.$invalid}">
+                            <label class="control-label">Data de Nascimento</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input type="text" class="form-control" ng-model="colaborador.dataNascimento" name="dataNascimento">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Botões-->
+                    <div class="col-md-12">
+                        <br>
+                        <div class="control-group">
+                            <button id="save" class="btn btn-success" type="submit" ng-disabled="!colaborador.nome">
+                                <span class="fa fa-floppy-o"></span> Salvar
+                            </button>
+                            <button type="reset" id="cancel" class="btn btn-default">
+                                <span class="fa fa-arrow-left"></span> Voltar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
