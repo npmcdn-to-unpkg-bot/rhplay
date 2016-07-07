@@ -2,6 +2,7 @@ package models;
 
 import com.avaje.ebean.Model;
 import play.data.format.Formats;
+import play.libs.Json;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,9 +20,6 @@ public class Colaborador extends Model {
 
     private String pis;
 
-    @Formats.DateTime(pattern="dd-MM-yyyy")
-    private Date dataNascimento;
-
     private String localNascimento;
 
     private String ufNascimento;
@@ -34,7 +32,7 @@ public class Colaborador extends Model {
 
     private String nomeMae;
 
-    private Genero genero;
+    private String genero;
 
     private String rg;
 
@@ -43,17 +41,20 @@ public class Colaborador extends Model {
     private String ufRg;
 
     @Formats.DateTime(pattern="dd-MM-yyyy")
+    private Date dataNascimento;
+
+    @Formats.DateTime(pattern="dd-MM-yyyy")
     private Date dataRgEmissao;
-
-    private Cargo cargo;
-
-    private Area area;
 
     @Formats.DateTime(pattern="dd-MM-yyyy")
     private Date dataAdmissão;
 
     @Formats.DateTime(pattern="dd-MM-yyyy")
     private Date dataDesligamento;
+
+    private String cargo;
+
+    private String area;
 
     private String endereco;
 
@@ -69,7 +70,7 @@ public class Colaborador extends Model {
 
     private String email;
 
-    private Escolaridade escolaridade;
+    private String escolaridade;
 
     private Float salario;
 
@@ -81,7 +82,7 @@ public class Colaborador extends Model {
 
     private String contaDigito;
 
-    private Beneficio beneficios;
+    private String beneficios;
 
     public Long getId() {
         return id;
@@ -113,14 +114,6 @@ public class Colaborador extends Model {
 
     public void setPis(String pis) {
         this.pis = pis;
-    }
-
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
     }
 
     public String getLocalNascimento() {
@@ -171,11 +164,11 @@ public class Colaborador extends Model {
         this.nomeMae = nomeMae;
     }
 
-    public Genero getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(Genero genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 
@@ -203,28 +196,20 @@ public class Colaborador extends Model {
         this.ufRg = ufRg;
     }
 
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
     public Date getDataRgEmissao() {
         return dataRgEmissao;
     }
 
     public void setDataRgEmissao(Date dataRgEmissao) {
         this.dataRgEmissao = dataRgEmissao;
-    }
-
-    public Cargo getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
-    }
-
-    public Area getArea() {
-        return area;
-    }
-
-    public void setArea(Area area) {
-        this.area = area;
     }
 
     public Date getDataAdmissão() {
@@ -241,6 +226,22 @@ public class Colaborador extends Model {
 
     public void setDataDesligamento(Date dataDesligamento) {
         this.dataDesligamento = dataDesligamento;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public String getEndereco() {
@@ -299,11 +300,11 @@ public class Colaborador extends Model {
         this.email = email;
     }
 
-    public Escolaridade getEscolaridade() {
+    public String getEscolaridade() {
         return escolaridade;
     }
 
-    public void setEscolaridade(Escolaridade escolaridade) {
+    public void setEscolaridade(String escolaridade) {
         this.escolaridade = escolaridade;
     }
 
@@ -347,11 +348,16 @@ public class Colaborador extends Model {
         this.contaDigito = contaDigito;
     }
 
-    public Beneficio getBeneficios() {
+    public String getBeneficios() {
         return beneficios;
     }
 
-    public void setBeneficios(Beneficio beneficios) {
+    public void setBeneficios(String beneficios) {
         this.beneficios = beneficios;
+    }
+
+    @Override
+    public String toString() {
+        return Json.toJson(this).toString();
     }
 }

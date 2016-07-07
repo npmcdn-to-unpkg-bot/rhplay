@@ -1,10 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="col-sm-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">Detalhe do Colaborador
+            <div class="btn-group pull-right">
+                <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Opções <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="cancel()" href="">Voltar</a></li>
+                    <li><a href="">Editar</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a ng-click="open('sm')" href="">Excluir</a></li>
+                </ul>
+            </div>
+        </div>
+        <div ng-init="init()" class="panel-body">
+            <div class="item-form width-600 margin-bottom-15">
+                <label class="display-block strong">Nome</label>
+                <p class="display-block margin-left-027em">{{colaborador.nome}}</p>
+            </div>
+            <div class="item-form width-600 margin-bottom-15">
+                <label class="display-block strong">Email</label>
+                <p class="display-block margin-left-027em">{{colaborador.email}}</p>
+            </div>
+            <div class="item-form width-600 margin-bottom-15">
+                <label class="display-block strong">Cargo</label>
+                <p class="display-block margin-left-027em">{{colaborador.cargo}}</p>
+            </div>
+            <div class="item-form width-600 margin-bottom-15">
+                <label class="display-block strong">Data de Admissão</label>
+                <p type="date" class="display-block margin-left-027em">{{colaborador.dataAdmissao}}</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-</body>
-</html>
+<!-- Modal de confirmação-->
+<script type="text/ng-template" id="modalConfirmacao.html">
+    <div class="modal-header">
+        <h3 align="center" class="modal-title">Confirmação:</h3>
+    </div>
+    <div align="center" class="modal-body">
+        Deseja remover o país?
+    </div>
+    <div class="modal-footer">
+        <button id="delete" class="btn btn-warning" ng-click="delete()"><span class="fa fa-check"></span> Sim</button>
+        <button class="btn btn-default" ng-click="cancelModal()"><span class="fa fa-times"></span> Cancelar</button>
+    </div>
+</script>

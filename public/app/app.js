@@ -5,7 +5,8 @@ angular.module('rhplay',
             'ngAria',
             'ngAnimate',
             'angular-loading-bar',
-            'toastr'
+            'toastr',
+            'ui.bootstrap'
         ]
     )
     .config(function ($routeProvider) {

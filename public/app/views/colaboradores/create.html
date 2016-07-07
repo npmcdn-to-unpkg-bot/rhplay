@@ -7,7 +7,7 @@
                     <i class="fa fa-male"></i> Novo Colaborador
                 </h3>
             </legend>
-            <form class="form-horizontal">
+            <form class="form-horizontal" ng-submit="save()">
                 <div class="form-group">
 
                     <!--Input do Nome-->
@@ -16,29 +16,40 @@
                             <label class="control-label" for="nome">Nome</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-male"></i></span>
-                                <input placeholder="Insira o nome" maxlength="75" class="form-control" type="text" ng-model="colaborador.nome" id="nome"/>
+                                <input placeholder="Insira o nome" ng-minlength="3" maxlength="" class="form-control" type="text" ng-model="colaborador.nome" id="nome"/>
                             </div>
                         </div>
                     </div>
 
                     <!--Input do Email-->
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div ng-class="{'has-error': !colaborador.email}">
                             <label class="control-label" for="email">Email</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-                                <input placeholder="email@exemplo.com" ng-minlength="3" maxlength="58" class="form-control" type="email" ng-model="colaborador.email" id="email"/>
+                                <input placeholder="email@exemplo.com" ng-minlength="3" maxlength="" class="form-control" type="email" ng-model="colaborador.email" id="email"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Input do Cargo-->
+                    <div class="col-md-2">
+                        <div ng-class="{'has-error': !colaborador.cargo}">
+                            <label class="control-label" for="email">Cargo</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-bookmark"></i></span>
+                                <input placeholder="Insira o cargo" ng-minlength="3" maxlength="" class="form-control" type="text" ng-model="colaborador.cargo" id="cargo"/>
                             </div>
                         </div>
                     </div>
 
                     <!--Input de Data de Nascimento-->
                     <div class="col-md-2">
-                        <div ng-class="{'has-error': colaborador.dataNascimento.$invalid}">
-                            <label class="control-label">Data de Nascimento</label>
+                        <div ng-class="{'has-error': colaborador.dataAdmissao.$invalid}">
+                            <label class="control-label">Data de Admissão</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                <input type="text" class="form-control" ng-model="colaborador.dataNascimento" name="dataNascimento">
+                                <input type="text" class="form-control" ng-model="colaborador.dataAdmissao" name="dataAdmissao">
                             </div>
                         </div>
                     </div>
@@ -50,7 +61,7 @@
                             <button id="save" class="btn btn-success" type="submit" ng-disabled="!colaborador.nome">
                                 <span class="fa fa-floppy-o"></span> Salvar
                             </button>
-                            <button type="reset" id="cancel" class="btn btn-default">
+                            <button type="reset" id="cancel" class="btn btn-default" ng-click="cancel()">
                                 <span class="fa fa-arrow-left"></span> Voltar
                             </button>
                         </div>

@@ -9,4 +9,11 @@ angular.module('rhplay')
                 getFiltroUsuarios: {method: 'GET', url: BaseUrl + '/usuarios/filtro/:filtro', isArray: true},
                 getAutenticado: {method: 'GET', url: BaseUrl + '/current', isArray: false}
             });
-        }]);
+        }]).service('Colaborador',['$resource', 'BaseUrl',
+        function($resource, BaseUrl){
+            return $resource(BaseUrl + '/colaborador/:id', {}, {
+                getAll: {method: 'GET', url: BaseUrl + '/colaboradores', isArray: true},
+                update: {method: 'PUT', url: BaseUrl + '/colaborador/:id', isArray: false},
+                getFiltroColaborador: {method: 'GET', url: BaseUrl + '/colaboradores/filtro/:filtro', isArray: true}
+            });
+    }]);

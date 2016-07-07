@@ -4,17 +4,26 @@
             <a href="/#/colaborador/novo" class="pull-right">Adicionar</a>
         </div>
         <div class="panel-body">
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover">
+            <!--Input de Busca-->
+            <div class="col-md-5 input-group">
+                <input ng-model="nomeFiltro" type="search" class="form-control" placeholder="digite o nome ou o cargo do colaborador">
+                <span class="input-group-btn">
+                    <button ng-disabled="!nomeFiltro" class="btn btn-primary" ng-click="busca();"><span class="fa fa-search"></span> Filtrar</button>
+                    <button class="btn btn-default" ng-click="init();">Limpar</button>
+                </span>
+            </div>
+            <br>
+            <div ng-show="colaboradores.length" class="table-responsive">
+                <table ng-init="init()" class="table table-bordered table-hover">
                     <tr>
                         <th>Nome Completo</th>
-                        <th>CPF</th>
-                        <th>PIS</th>
+                        <th>Email</th>
+                        <th>Cargo</th>
                     </tr>
-                    <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
+                    <tr ng-repeat="colaborador in colaboradores">
+                        <td><a href="/#/colaborador/detalhe/{{colaborador.id}}">{{colaborador.nome}}</a></td>
+                        <td>{{colaborador.email}}</td>
+                        <td>{{colaborador.cargo}}</td>
                     </tr>
                 </table>
             </div>
