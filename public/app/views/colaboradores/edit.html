@@ -1,10 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="col-sm-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <!-- Título de Página-->
+            <legend>
+                <h3>
+                    <i class="fa fa-male"></i> Editar Colaborador
+                </h3>
+            </legend>
+            <form ng-init="init()" class="form-horizontal" ng-submit="update()">
+                <div class="form-group">
 
-</body>
-</html>
+                    <!--Input do Nome-->
+                    <div class="col-md-3">
+                        <div ng-class="{'has-error': !colaborador.nome}">
+                            <label class="control-label" for="nome">Nome</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-male"></i></span>
+                                <input placeholder="Insira o nome" ng-minlength="3" maxlength="" class="form-control" type="text" ng-model="colaborador.nome" id="nome"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Input do Email-->
+                    <div class="col-md-2">
+                        <div ng-class="{'has-error': !colaborador.email}">
+                            <label class="control-label" for="email">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                <input placeholder="email@exemplo.com" ng-minlength="3" maxlength="" class="form-control" type="email" ng-model="colaborador.email" id="email"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Input do Cargo-->
+                    <div class="col-md-2">
+                        <div ng-class="{'has-error': !colaborador.cargo}">
+                            <label class="control-label" for="email">Cargo</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-bookmark"></i></span>
+                                <input placeholder="Insira o cargo" ng-minlength="3" maxlength="" class="form-control" type="text" ng-model="colaborador.cargo" id="cargo"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Input de Data de Nascimento-->
+                    <div class="col-md-2">
+                        <div ng-class="{'has-error': colaborador.dataAdmissao.$invalid}">
+                            <label class="control-label">Data de Admissão</label>
+                            <div class="input-group date">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input type="text" class="form-control" name="dataAdmissao" placeholder="Selecione" ng-model="colaborador.dataAdmissao"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Botões-->
+                    <div class="col-md-12">
+                        <br>
+                        <div class="control-group">
+                            <button id="update" class="btn btn-success" type="submit" ng-disabled="!colaborador.nome">
+                                <span class="fa fa-floppy-o"></span> Atualizar
+                            </button>
+                            <a class="btn btn-default" href="/#/colaborador/detalhe/{{colaborador.id}}">
+                                <span class="fa fa-arrow-left"></span> Voltar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

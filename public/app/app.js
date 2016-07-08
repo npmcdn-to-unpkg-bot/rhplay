@@ -6,7 +6,7 @@ angular.module('rhplay',
             'ngAnimate',
             'angular-loading-bar',
             'toastr',
-            'ui.bootstrap'
+            'mgcrea.ngStrap.datepicker'
         ]
     )
     .config(function ($routeProvider) {

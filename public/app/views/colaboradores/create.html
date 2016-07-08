@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="col-sm-12">
     <div class="panel panel-default">
         <div class="panel-body">
             <!-- Título de Página-->
@@ -43,16 +43,16 @@
                         </div>
                     </div>
 
-                    <!--Input de Data de Nascimento-->
-                    <div class="col-md-2">
-                        <div ng-class="{'has-error': colaborador.dataAdmissao.$invalid}">
-                            <label class="control-label">Data de Admissão</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                <input type="text" class="form-control" ng-model="colaborador.dataAdmissao" name="dataAdmissao">
+                    <!--Input do Data-->
+                    <div class="col-md-1">
+                        <div ng-class="{'has-error': datepickerForm.date.$invalid}">
+                            <label class="control-label" for="email">Data Admissão</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="selectedDate" name="date" bs-datepicker>
                             </div>
                         </div>
                     </div>
+
 
                     <!--Botões-->
                     <div class="col-md-12">
