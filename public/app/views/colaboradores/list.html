@@ -19,11 +19,13 @@
                         <th>Nome Completo</th>
                         <th>Email</th>
                         <th>Cargo</th>
+                        <th>Data de Admissão</th>
                     </tr>
                     <tr ng-repeat="colaborador in colaboradores">
                         <td><a href="/#/colaborador/detalhe/{{colaborador.id}}">{{colaborador.nome}}</a></td>
                         <td>{{colaborador.email}}</td>
                         <td>{{colaborador.cargo}}</td>
+                        <td>{{colaborador.dataAdmissao | date:'dd/MM/yyyy'}}</td>
                     </tr>
                 </table>
             </div>

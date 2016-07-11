@@ -43,12 +43,16 @@
                         </div>
                     </div>
 
-                    <!--Input do Data-->
-                    <div class="col-md-1">
-                        <div ng-class="{'has-error': datepickerForm.date.$invalid}">
-                            <label class="control-label" for="email">Data Admissão</label>
-                            <div class="form-group">
-                                <input type="text" class="form-control" ng-model="selectedDate" name="date" bs-datepicker>
+                    <!--Input de Data de Admissao-->
+                    <div class="col-md-2">
+                        <div ng-class="{'has-error': colaborador.dataAdmissao.$invalid}">
+                            <label class="control-label">Data de Admissão</label>
+                            <div class="input-group date">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input type="datetime-local" class="form-control"
+                                       placeholder="Escolha a data"
+                                       name="dataAdmissao"
+                                       ng-model="colaborador.dataAdmissao">
                             </div>
                         </div>
                     </div>

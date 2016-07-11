@@ -6,7 +6,8 @@ angular.module('rhplay',
             'ngAnimate',
             'angular-loading-bar',
             'toastr',
-            'mgcrea.ngStrap.datepicker'
+            'ui.bootstrap',
+            'datetimepicker'
         ]
     )
     .config(function ($routeProvider) {
@@ -31,4 +32,14 @@ angular.module('rhplay',
                 templateUrl: '/assets/app/views/colaboradores/list.html',
                 controller: 'colaborador.list.controller'
             })
-    });
+    }).directive('formatDate',formatDate);
+        function formatDate(){
+            return {
+                require: 'ngModel',
+                link: function(scope, elem, attr, modelCtrl) {
+                    modelCtrl.$formatters.push(function(modelValue){
+                        return new Date(modelValue);
+                    })
+                }
+            }
+    }

@@ -24,6 +24,7 @@ public class ColaboradorController extends Controller {
 //        }
 
         try {
+            Logger.info(colaborador.toString());
             Ebean.save(colaborador);
         } catch (Exception e) {
             Logger.error(e.getMessage());
@@ -44,6 +45,7 @@ public class ColaboradorController extends Controller {
         }
 
         try {
+            Logger.info(colaborador.toString());
             Ebean.update(colaborador);
         } catch (Exception e) {
             Logger.error(e.getMessage());

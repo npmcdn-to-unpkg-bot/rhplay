@@ -43,13 +43,16 @@
                         </div>
                     </div>
 
-                    <!--Input de Data de Nascimento-->
-                    <div class="col-md-2">
+                    <!--Input de Data de Admissao-->
+                    <div class="col-md-1">
                         <div ng-class="{'has-error': colaborador.dataAdmissao.$invalid}">
                             <label class="control-label">Data de Admissão</label>
                             <div class="input-group date">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                <input type="text" class="form-control" name="dataAdmissao" placeholder="Selecione" ng-model="colaborador.dataAdmissao"/>
+                                <input format-date type="datetime-local" class="form-control"
+                                       placeholder="Escolha a data"
+                                       name="dataAdmissao"
+                                       ng-model="colaborador.dataAdmissao">
                             </div>
                         </div>
                     </div>

@@ -28,7 +28,7 @@
             </div>
             <div class="item-form width-600 margin-bottom-15">
                 <label class="display-block strong">Data de Admissão</label>
-                <p type="date" class="display-block margin-left-027em">{{colaborador.dataAdmissao}}</p>
+                <p type="date" class="display-block margin-left-027em">{{colaborador.dataAdmissao | date:'dd/MM/yyyy : HH:mm'}}</p>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
         <h3 align="center" class="modal-title">Confirmação:</h3>
     </div>
     <div align="center" class="modal-body">
-        Deseja remover o país?
+        Deseja remover o Colaborador?
     </div>
     <div class="modal-footer">
         <button id="delete" class="btn btn-warning" ng-click="delete()"><span class="fa fa-check"></span> Sim</button>
